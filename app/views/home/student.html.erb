@@ -1,0 +1,32 @@
+<h1>Student Dashboard</h1>
+
+<h1>Evaluation Submissions</h1>
+
+<% @presentation_events.each do |event| %>
+  <h3>Title: <%= event.title %> Date: <%= event.date.strftime("%B %d, %Y") %></h3>
+  <p><%= event.description %></p>
+
+  <%= form_with url: presentation_event_evaluations_path(event), local: true do |f| %>
+    <div>
+      <%= f.label :score, "Score (0-100)" %>
+      <%= f.number_field :score, required: true, min: 0, max: 100 %>
+    </div>
+
+    <div>
+      <%= f.label :comments, "Comments" %>
+      <%= f.text_area :comments, required: true %>
+    </div>
+
+    <div>
+      <%= f.label :student_name, "Your Name" %>
+      <%= f.text_field :student_name, required: true %>
+    </div>
+
+    <div>
+      <%= f.submit "Submit Evaluation", class: "button" %>
+    </div>
+  <% end %>
+  <hr>
+<% end %>
+
+

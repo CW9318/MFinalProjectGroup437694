@@ -1,0 +1,55 @@
+<h1>Instructor Dashboard</h1>
+
+<p>Create a new presentation:</p>
+
+<%= form_with url: presentation_events_path, local: true do |f| %>
+  <div>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, required: true %>
+  </div>
+  <div>
+    <%= f.label :date, "Date" %>
+    <%= f.date_field :date, required: true, class: "date-picker" %>
+  </div>
+  <div>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, required: true %>
+  </div>
+  <div>
+    <%= f.label :instructor_name, "Instructor Name" %>
+    <%= f.text_field :instructor_name, required: true %>
+  </div>
+  <div>
+    <%= f.submit "Create Event", class: "button" %>
+  </div>
+<% end %>
+<hr>
+
+<h2>Presentations</h2>
+
+<% @presentation_events.each do |event| %>
+  <div class="event">
+    <h3><%= event.title %></h3>
+    <p><strong>Date:</strong> <%= event.date.strftime("%B %d, %Y") %></p>
+    <p><strong>Description:</strong> <%= event.description %></p>
+    <p><strong>Instructor:</strong> <%= event.instructor_name %></p>
+
+    <h4>Evaluations:</h4>
+    <% if event.evaluations.any? %>
+      <ul>
+        <% event.evaluations.each do |evaluation| %>
+          <li>
+            <p><strong>Student:</strong> <%= evaluation.student_name %></p>
+            <p><strong>Score:</strong> <%= evaluation.score %></p>
+            <p><strong>Comments:</strong> <%= evaluation.comments %></p>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No evaluations submitted yet.</p>
+    <% end %>
+  </div>
+  <hr>
+<% end %>
+
+
