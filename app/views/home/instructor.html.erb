@@ -1,9 +1,10 @@
 <h1>Instructor Dashboard</h1>
 
 <p>Create a new presentation:</p>
-
+<%# Submits form to presentations events controller%>
 <%= form_with url: presentation_events_path, local: true do |f| %>
   <div>
+    <%# Formbuilder creates labels, fields, text using f%>
     <%= f.label :title, "Title" %>
     <%= f.text_field :title, required: true %>
   </div>
@@ -27,6 +28,7 @@
 
 <h2>Presentations</h2>
 
+<%# Gets each presentation and displays it%>
 <% @presentation_events.each do |event| %>
   <div class="event">
     <h3><%= event.title %></h3>
@@ -35,6 +37,7 @@
     <p><strong>Instructor:</strong> <%= event.instructor_name %></p>
 
     <h4>Evaluations:</h4>
+    <%# If there are evaluations, display them as well%>
     <% if event.evaluations.any? %>
       <ul>
         <% event.evaluations.each do |evaluation| %>
