@@ -18,8 +18,11 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'instructor', to: 'home#instructor'
   get 'student', to: 'home#student'
-  resources :presentation_events, only: [:create] do
-    resources :evaluations, only: [:create]
+
+  # RESTful routes for evals and presentations
+  resources :presentation_events do
+    resources :evaluations
   end
+  resources :evaluations
   resources :presentation_events
 end

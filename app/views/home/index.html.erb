@@ -1,14 +1,15 @@
 <%= stylesheet_link_tag 'homepage', media: 'all', 'data-turbo-track': 'reload' %>
 
 <div class="homepage-container">
+  <div class="center-container">
+  <h1 class="title">Student Evaluation Application</h1>
   <h1 class="home-title">Select your role:</h1>
-
   <div class="role-selection">
-    <div>
-      <%= link_to 'Instructor', instructor_path, class: 'button' %>
-    </div>
-    <div>
-      <%= link_to 'Student', student_path, class: 'button' %>
-    </div>
-  </div>
+      <div>
+        <%= link_to 'Instructor', instructor_path, class: 'button' %>
+      </div>
+      <div>
+        <%= link_to 'Student', student_path, class: 'button' %>
+      </div>
+</div>  </div>
 </div>

@@ -21,3 +21,33 @@
   li {
     margin-bottom: 20px;
   }
+
+  .evaluations-table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .evaluations-table th,
+  .evaluations-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .evaluations-table th {
+    background-color: #bcbcbc;
+    font-weight: bold;
+  }
+  
+  .evaluations-table tr:nth-child(odd) {
+    background-color: #e8e8e8;
+  }
+
+  .evaluations-table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  .evaluations-table tr:hover {
+    background-color: #d4d4d4;
+  }
