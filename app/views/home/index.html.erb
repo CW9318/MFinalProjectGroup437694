@@ -1,11 +1,10 @@
-<h1>Select your role:</h1>
-
-<%# Button redirects to instructor or student pages %>
-
-<div>
-  <%= link_to 'Instructor', instructor_path, class: 'button' %>
+<div class="center-container">
+  <h1 class="title">Student Evaluation Application</h1>
+  <h1>Select your role:</h1>
+  <div>
+    <%= link_to 'Instructor', instructor_path, class: 'button' %>
+  </div>
+  <div>
+    <%= link_to 'Student', student_path, class: 'button' %>
+  </div>
 </div>
-<div>
-  <%= link_to 'Student', student_path, class: 'button' %>
-</div>
-

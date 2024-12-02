@@ -1,7 +1,7 @@
 <h1>Instructor Dashboard</h1>
 
-<p>Create a new presentation:</p>
-<%# Submits form to presentations events controller%>
+<h2>Create a new presentation:</h2>
+
 <%= form_with url: presentation_events_path, local: true do |f| %>
   <div>
     <%# Formbuilder creates labels, fields, text using f%>
@@ -37,20 +37,28 @@
     <p><strong>Instructor:</strong> <%= event.instructor_name %></p>
 
     <h4>Evaluations:</h4>
-    <%# If there are evaluations, display them as well%>
-    <% if event.evaluations.any? %>
-      <ul>
-        <% event.evaluations.each do |evaluation| %>
-          <li>
-            <p><strong>Student:</strong> <%= evaluation.student_name %></p>
-            <p><strong>Score:</strong> <%= evaluation.score %></p>
-            <p><strong>Comments:</strong> <%= evaluation.comments %></p>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>No evaluations submitted yet.</p>
-    <% end %>
+<% if event.evaluations.any? %>
+  <table class="evaluations-table">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Score</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% event.evaluations.each do |evaluation| %>
+        <tr>
+          <td><%= evaluation.student_name %></td>
+          <td><%= evaluation.score %></td>
+          <td><%= evaluation.comments %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No evaluations submitted yet.</p>
+<% end %>
   </div>
   <hr>
 <% end %>

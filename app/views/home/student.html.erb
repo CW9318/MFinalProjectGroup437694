@@ -1,9 +1,10 @@
 <h1>Student Dashboard</h1>
 
-<h1>Evaluation Submissions</h1>
-<%# Gets each presentation and displays it %>
+<h2>Evaluation Submissions</h2>
+
 <% @presentation_events.each do |event| %>
-  <h3>Title: <%= event.title %> Date: <%= event.date.strftime("%B %d, %Y") %></h3>
+  <h3>Title: <%= event.title %> </h3>
+  <h3>Date: <%= event.date.strftime("%B %d, %Y") %></h3>
   <p><%= event.description %></p>
   <%# Submits form to evaluations event controller%>
   <%= form_with url: presentation_event_evaluations_path(event), local: true do |f| %>
