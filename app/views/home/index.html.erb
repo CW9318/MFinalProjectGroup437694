@@ -1,9 +1,14 @@
-<h1>Select your role:</h1>
+<%= stylesheet_link_tag 'homepage', media: 'all', 'data-turbo-track': 'reload' %>
 
-<div>
-  <%= link_to 'Instructor', instructor_path, class: 'button' %>
-</div>
-<div>
-  <%= link_to 'Student', student_path, class: 'button' %>
-</div>
+<div class="homepage-container">
+  <h1 class="home-title">Select your role:</h1>
 
+  <div class="role-selection">
+    <div>
+      <%= link_to 'Instructor', instructor_path, class: 'button' %>
+    </div>
+    <div>
+      <%= link_to 'Student', student_path, class: 'button' %>
+    </div>
+  </div>
+</div>
