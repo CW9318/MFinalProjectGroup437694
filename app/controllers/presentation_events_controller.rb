@@ -12,21 +12,21 @@ class PresentationEventsController < ApplicationController
     end
   end
 
-  private
-  # Private method to only allow certain things in params
-  def presentation_event_params
-    params.permit(:title, :date, :description, :instructor_name)
-  end
-
   def destroy
-    @presentation_event = PresentationEvent.find(params[:id])
+    @presentation_event = PresentationEvent.find_by(id: params[:id])
     if @presentation_event.destroy
       flash[:notice] = "Presentation successfully removed."
     else
       flash[:alert] = "Failed to remove the presentation."
     end
-    
+
     redirect_to instructor_path # Adjust this to the appropriate route for the instructor page
+  end
+
+  private
+  # Private method to only allow certain things in params
+  def presentation_event_params
+    params.permit(:title, :date, :description, :instructor_name)
   end
 
 end
