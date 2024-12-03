@@ -20,7 +20,7 @@ class PresentationEventsController < ApplicationController
       flash[:alert] = "Failed to remove the presentation."
     end
 
-    redirect_to instructor_path # Adjust this to the appropriate route for the instructor page
+    redirect_to instructor_path 
   end
 
   private

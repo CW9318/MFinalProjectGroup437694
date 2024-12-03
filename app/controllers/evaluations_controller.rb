@@ -26,7 +26,7 @@ class EvaluationsController < ApplicationController
           flash[:alert] = "Evaluation not found."
         end
     
-        redirect_to presentation_event_path(params[:presentation_event_id]) # Adjust this to the appropriate path
+        redirect_to presentation_event_path(params[:presentation_event_id]) 
       end
 
       # Private method for controller only
