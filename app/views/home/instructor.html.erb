@@ -34,7 +34,14 @@
 <%# Gets each presentation and displays it%>
 <% @presentation_events.each do |event| %>
   <div class="event">
-    <h3><%= event.title %></h3>
+    <h3>
+    <%= event.title %>
+    <%= button_to "Remove Presentation", 
+                presentation_event_path(event), 
+                method: :delete, 
+                class: "button remove-presentation", 
+                data: { confirm: "Are you sure you want to delete this entire presentation?" } %>
+    </h3>
     <p><strong>Date:</strong> <%= event.date.strftime("%B %d, %Y") %></p>
     <p><strong>Description:</strong> <%= event.description %></p>
     <p><strong>Instructor:</strong> <%= event.instructor_name %></p>
@@ -55,7 +62,13 @@
           <td><%= evaluation.student_name %></td>
           <td><%= evaluation.score %></td>
           <td><%= evaluation.comments %></td>
-          <td> <%= button_to "Remove", presentation_event_path(event), method: :delete, class: "button remove-button", data: { confirm: "Are you sure you want to delete this presentation?" } %></td>
+          <td>
+            <%= button_to "Remove", 
+                          presentation_event_evaluation_path(event, evaluation), 
+                          method: :delete, 
+                          class: "button remove-button", 
+                          data: { confirm: "Are you sure you want to delete this evaluation?" } %>
+          </td>
         </tr>
       <% end %>
     </tbody>

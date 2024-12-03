@@ -15,10 +15,26 @@ class EvaluationsController < ApplicationController
           redirect_to student_path
         end
       end
+
+      def destroy
+        @evaluation = Evaluation.find_by(id: params[:id], presentation_event_id: params[:presentation_event_id])
+    
+        if @evaluation
+          @evaluation.destroy
+          flash[:notice] = "Evaluation successfully removed."
+        else
+          flash[:alert] = "Evaluation not found."
+        end
+    
+        redirect_to presentation_event_path(params[:presentation_event_id]) # Adjust this to the appropriate path
+      end
+
       # Private method for controller only
       private
       # Allows params to contain specific things
       def evaluation_params
         params.permit(:score, :comments, :student_name)
       end
+
+
 end
