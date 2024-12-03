@@ -55,6 +55,7 @@
           <td><%= evaluation.student_name %></td>
           <td><%= evaluation.score %></td>
           <td><%= evaluation.comments %></td>
+          <td> <%= button_to "Remove", presentation_event_path(event), method: :delete, class: "button remove-button", data: { confirm: "Are you sure you want to delete this presentation?" } %></td>
         </tr>
       <% end %>
     </tbody>
