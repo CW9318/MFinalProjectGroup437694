@@ -1,0 +1,1 @@
+Updated models to reflect associations between evaluations, presentations and got rid of the user model. Created controllers for the home, presentations, and evaluations. Created views for each of the pages that will be displayed. Updated the CSS and styling to make the website better looking.
